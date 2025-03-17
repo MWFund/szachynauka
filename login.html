@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Logowanie</h1>
+    <form id="loginForm">
+      <label for="username">Nazwa użytkownika:</label>
+      <input type="text" id="username" name="username" required />
+      <br />
+      <label for="password">Hasło:</label>
+      <input type="password" id="password" name="password" required />
+      <br />
+      <button type="submit">Zaloguj się</button>
+    </form>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          var username = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+
+          fetch("https://twoja-aplikacja.pythonanywhere.com/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username: username, password: password }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                window.location.href = "/welcome"; // Przekierowanie po udanym logowaniu
+              } else {
+                alert("Błędne dane logowania");
+              }
+            })
+            .catch((error) => console.log("Błąd:", error));
+        });
+    </script>
+  </body>
+</html>
