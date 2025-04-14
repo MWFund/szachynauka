@@ -1,45 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
   <head>
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.27.5/full/pyodide.js"></script>
+    <meta charset="UTF-8" />
+    <title>Commit do GitHuba</title>
   </head>
-
   <body>
-    <p>
-      You can execute any Python code. Just enter something in the box below and
-      click the button.
-    </p>
-    <input id="code" value="sum([1, 2, 3, 4, 5])" />
-    <button onclick="evaluatePython()">Run</button>
-    <br />
-    <br />
-    <div>Output:</div>
-    <textarea id="output" style="width: 100%" rows="6" disabled></textarea>
+    <h1>Commit do GitHuba z przeglądarki</h1>
+    <textarea id="content" rows="10" cols="50">
+Tutaj wpisz zawartość pliku</textarea
+    ><br />
+    <button onclick="commitToGitHub()">Wyślij commit</button>
 
     <script>
-      const output = document.getElementById("output");
-      const code = document.getElementById("code");
+      const token = "ghp_TWÓJ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_TOKEN"; // Wklej tutaj swój token
+      const owner = "Jaromatu";
+      const repo = "projekt";
+      const path = "folder/plik.txt"; // ścieżka pliku w repo
+      const branch = "main"; // lub inna gałąź
 
-      function addToOutput(s) {
-        output.value += ">>>" + code.value + "\n" + s + "\n";
-      }
+      async function commitToGitHub() {
+        const content = document.getElementById("content").value;
+        const base64Content = btoa(unescape(encodeURIComponent(content))); // konwersja do base64
 
-      output.value = "Initializing...\n";
-      // init Pyodide
-      async function main() {
-        let pyodide = await loadPyodide();
-        output.value += "Ready!\n";
-        return pyodide;
-      }
-      let pyodideReadyPromise = main();
-
-      async function evaluatePython() {
-        let pyodide = await pyodideReadyPromise;
+        // najpierw pobieramy SHA istniejącego pliku (jeśli istnieje)
+        let sha = null;
         try {
-          let output = pyodide.runPython(code.value);
-          addToOutput(output);
-        } catch (err) {
-          addToOutput(err);
+          const res = await fetch(
+            `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                Accept: "application/vnd.github+json",
+              },
+            }
+          );
+          if (res.ok) {
+            const data = await res.json();
+            sha = data.sha;
+          }
+        } catch (e) {
+          console.error("Błąd przy pobieraniu SHA:", e);
+        }
+
+        const payload = {
+          message: "Commit z przeglądarki ✨",
+          content: base64Content,
+          branch: branch,
+        };
+        if (sha) payload.sha = sha;
+
+        const result = await fetch(
+          `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
+          {
+            method: "PUT",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              Accept: "application/vnd.github+json",
+            },
+            body: JSON.stringify(payload),
+          }
+        );
+
+        const responseData = await result.json();
+        if (result.ok) {
+          alert("✅ Commit wykonany! Zobacz repo 😄");
+          console.log(responseData);
+        } else {
+          alert("❌ Coś poszło nie tak...");
+          console.error(responseData);
         }
       }
     </script>
