@@ -1,5 +1,0 @@
-baseURL = 'https://jaromatu.github.io/Hugo/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
-theme = 'nowy'
-
