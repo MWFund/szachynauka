@@ -2,7 +2,7 @@ body {
   background-color: #303030;
   color: #ffffff;
   font-family: "Lato", sans-serif;
-  font-size: 20px;
+  font-size: 100%;
   margin: 0 !important;
 }
 
@@ -12,7 +12,7 @@ body {
 
 .header {
   width: 100%;
-  padding: 40px 0;
+  padding: 2% 0;
 }
 
 .eng {
@@ -20,27 +20,27 @@ body {
 }
 
 .logo {
-  width: 650px;
-  font-size: 48px;
+  width: 50%;
+  font-size: 300%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .nav {
   width: 100%;
-  padding: 5px 0;
+  padding: 0.5% 0;
   background-color: #c34f4f;
   text-align: center;
-  border-top: 1px solid #751b1b;
-  border-bottom: 1px solid #751b1b;
+  border-top: 1% solid #751b1b;
+  border-bottom: 1% solid #751b1b;
 }
 
 .content {
-  width: 1000px;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
   text-align: justify;
-  padding-top: 10px;
+  padding-top: 1%;
 }
 
 .socials {
@@ -50,14 +50,14 @@ body {
 }
 
 .socialdivs {
-  width: 1000px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .fb {
-  width: 250px;
-  height: 155px;
+  width: 25%;
+  height: 15.5%;
   float: left;
 }
 
@@ -66,8 +66,8 @@ body {
 }
 
 .yt {
-  width: 250px;
-  height: 155px;
+  width: 25%;
+  height: 15.5%;
   float: left;
 }
 
@@ -76,8 +76,8 @@ body {
 }
 
 .tw {
-  width: 250px;
-  height: 155px;
+  width: 25%;
+  height: 15.5%;
   float: left;
 }
 
@@ -86,8 +86,8 @@ body {
 }
 
 .gplus {
-  width: 250px;
-  height: 155px;
+  width: 25%;
+  height: 15.5%;
   float: left;
 }
 
@@ -98,7 +98,7 @@ body {
 .footer {
   text-align: center;
   background-color: #222222;
-  padding: 30px;
+  padding: 1%;
 }
 
 .sticky {
@@ -113,8 +113,8 @@ ol {
   padding: 0;
   margin: 0;
   list-style-type: none;
-  font-size: 15px;
-  height: 35px;
+  font-size: 95%;
+  height: 2em;
 
   display: inline-block;
 }
@@ -127,13 +127,13 @@ ol a {
 
 ol > li {
   float: left;
-  width: 150px;
-  height: 40px;
-  border-right: 1px dashed #751b1b;
+  width: 10em;
+
+  border-right: 0.05em dashed #751b1b;
 }
 
 ol > li:first-child {
-  border-left: 1px dashed #751b1b;
+  border-left: 0.05em dashed #751b1b;
 }
 
 ol > li:hover {
@@ -148,7 +148,7 @@ ol > li > ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  height: 40px;
+
   display: none;
 }
 
@@ -160,7 +160,7 @@ ol > li > ul > li {
   background-color: #cf6969;
   position: relative;
   z-index: 100;
-  border-top: 1px dashed #751b1b;
+  border-top: 0.05em dashed #751b1b;
 }
 
 ol > li > ul > li:hover {
