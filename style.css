@@ -1,6 +1,7 @@
 body {
-  background-color: #303030;
-  color: #ffffff;
+  background-color: #fdfcdc;
+  color: #fe6d73;
+
   font-family: "Lato", sans-serif;
   font-size: 100%;
   margin: 0 !important;
@@ -21,8 +22,9 @@ body {
 
 .logo {
   width: 60%;
-  font-size: 300%;
+  font-size: 350%;
   text-align: center;
+
   margin-left: 12%;
   float: left;
 }
@@ -33,7 +35,8 @@ body {
 .nav {
   width: 100%;
   padding: 0.5% 0;
-  background-color: #c34f4f;
+  background-color: #227c9d;
+
   text-align: center;
   border-top: 1% solid #751b1b;
   border-bottom: 1% solid #751b1b;
@@ -124,7 +127,8 @@ ol {
 }
 
 ol a {
-  color: #ffffff;
+  color: #fed9b7;
+
   text-decoration: none;
   display: block;
 }
@@ -141,7 +145,7 @@ ol > li:first-child {
 }
 
 ol > li:hover {
-  background-color: #cf6969;
+  background-color: #17c3b2;
 }
 
 ol > li:hover > a {
@@ -161,14 +165,14 @@ ol > li:hover > ul {
 }
 
 ol > li > ul > li {
-  background-color: #cf6969;
+  background-color: #17c3b2;
   position: relative;
   z-index: 100;
   border-top: 0.05em dashed #751b1b;
 }
 
 ol > li > ul > li:hover {
-  background-color: #c34f4f;
+  background-color: #227c9d;
 }
 
 ol > li > ul > li:hover > a {
