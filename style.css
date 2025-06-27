@@ -18,6 +18,7 @@ body {
 
 .eng {
   float: right;
+  color: #227c9d;
 }
 
 .logo {
@@ -44,6 +45,7 @@ body {
 
 .content {
   width: 60%;
+
   margin-left: auto;
   margin-right: auto;
   text-align: justify;
@@ -58,6 +60,7 @@ body {
 
 .socialdivs {
   width: 100%;
+  color: white;
   margin-left: auto;
   margin-right: auto;
 }
